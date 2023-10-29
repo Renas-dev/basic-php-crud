@@ -1,22 +1,4 @@
-<?php
 
-include 'connect.php';
-if(isset($_POST['submit'])) {
-    $name = ($_POST['name']);
-    $email = ($_POST['email']);
-    $mobile = ($_POST['mobile']);
-    $password = ($_POST['password']);
-
-    $sql = "insert into users (firstname,email,mobile,password)
-            values ('$name', '$email', '$mobile', '$password');";
-
-    if ($conn->exec($sql)) {
-
-    header('location: /display.php');
-} else
-    echo "oops something went wrong!";
-}
-?>
 
 
 
@@ -30,7 +12,7 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
 <div class="container my-5">
-    <form method="post">
+    <form action="/functions/addUser.php" method="post">
         <div class="mb-3">
             <label> name
                 <input type="text" class="form-control" placeholder="enter your name" name="name" autocomplete="off">
