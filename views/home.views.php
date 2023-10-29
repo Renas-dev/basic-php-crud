@@ -1,4 +1,4 @@
-<?php require 'connect.php'?>
+<?php require 'connect.php' ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 <button class="btn btn-primary my-5">
-    <a href="user.php" class="text-light">ADD user</a>
+    <a href="/adduser" class="text-light">ADD user</a>
 </button>
     <table class="table">
         <thead>
@@ -48,8 +48,14 @@
             <td><?= $user['created_at']?></td>
             <td><?=$user['updated_at']?></td>
             <td>
-                <button class="btn btn-primary"><a href="update.php?updateid=<?= $user['id']?>" class="text-light">Update</a></button>
-                <button class="btn btn-danger"><a href="delete.php?deleteid=<?= $user['id']?>" class="text-light">Delete</a></button>
+                <form method="post" action="/updateUser" >
+                    <input type="hidden" name="updateid" value="<?= $user['id']?>">
+                    <button  class="btn btn-primary" type="submit">Update</button>
+                </form>
+                <form method="post" action="/deleteUser" >
+                    <input type="hidden" name="updateid" value="<?= $user['id']?>">
+                    <button  class="btn btn-danger" type="submit"><a class="text-light"></a>Delete</button>
+                </form>
             </td>
 
         </tr>
